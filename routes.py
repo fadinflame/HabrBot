@@ -42,11 +42,11 @@ def send_welcome(message):
 			logs.add_log("New user saved")
 		else:
 			logs.add_log("User already exist")
-		tkeyboard = tools.generate_keyboard()
-		bot.reply_to(message,
-		             WELCOME_MESSAGE,
-		             parse_mode="markdown",
-		             reply_markup=tkeyboard)
+			tkeyboard = tools.generate_keyboard()
+			bot.reply_to(message,
+						WELCOME_MESSAGE,
+						parse_mode="markdown",
+						reply_markup=tkeyboard)
 
 
 # обработка всех сообщений происходит здесь
@@ -143,7 +143,7 @@ def message_handler(message):
 	# обработка запроса на чтение публикации
 	elif message.text.startswith("/read"):
 		# если пользователь превысил лимит запросов в сутки, то уведомляем его
-		if (user.status == 0 and user.requests <= 5) or user.status == 1:
+		if (user.status == 0 and user.requests <= 150) or user.status == 1:
 			user.requests += 1
 			user.save()
 			# получаем публикацию из кэша
