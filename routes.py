@@ -42,11 +42,11 @@ def send_welcome(message):
 			logs.add_log("New user saved")
 		else:
 			logs.add_log("User already exist")
-			tkeyboard = tools.generate_keyboard()
-			bot.reply_to(message,
-						WELCOME_MESSAGE,
-						parse_mode="markdown",
-						reply_markup=tkeyboard)
+		tkeyboard = tools.generate_keyboard()
+		bot.reply_to(message,
+					WELCOME_MESSAGE,
+					parse_mode="markdown",
+					reply_markup=tkeyboard)
 
 
 # обработка всех сообщений происходит здесь
