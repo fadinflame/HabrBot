@@ -11,16 +11,16 @@ class Logging:
 		self.timezone = pytz.timezone("Europe/Moscow")
 
 	def add_log(self, message):
-		msg = f"[{datetime.datetime.now(tz=self.timezone)}] {message}"
+		msg = f"[{datetime.datetime.now(tz=self.timezone).strftime('%H:%M:%S %d.%m.%Y')}] {message}"
 		print(msg)
 		logging.info(msg)
 
 	def add_error(self, message):
-		msg = f"[{datetime.datetime.now(tz=self.timezone)}] {message}"
+		msg = f"[{datetime.datetime.now(tz=self.timezone).strftime('%H:%M:%S %d.%m.%Y')}] {message}"
 		print(msg)
 		logging.error(msg)
 
 	def add_exception(self, exception):
-		msg = f"[{datetime.datetime.now(tz=self.timezone)}] --- EXCEPTION ---\n{exception}"
+		msg = f"[{datetime.datetime.now(tz=self.timezone).strftime('%H:%M:%S %d.%m.%Y')}] --- EXCEPTION ---\n{exception}"
 		print(msg)
 		logging.exception(msg)
